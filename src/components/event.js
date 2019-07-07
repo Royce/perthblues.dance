@@ -3,7 +3,7 @@ import Image from "./image-spoonful";
 
 const Event = () => {
   return (
-    <div className="max-w-sm w-full lg:max-w-full lg:flex">
+    <div className="w-full lg:max-w-full lg:flex">
       <div className="h-36 flex-none rounded-t overflow-hidden">
         <Image />
       </div>
