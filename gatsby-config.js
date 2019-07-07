@@ -1,20 +1,29 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Sugarbowl - Perth Blues Dance`,
+    description: `Sugarbowl. Social dancing and practicing Blues Idiom Dances. Perth, Australia.`,
+    author: `Royce Townsend`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `src`,
+        path: `${__dirname}/src`,
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-postcss`,
+    // {
+    //   resolve: `gatsby-theme-blog`,
+    //   options: {
+    //     // basePath defaults to `/`
+    //     basePath: `/notes`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
