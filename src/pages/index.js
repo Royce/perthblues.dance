@@ -10,7 +10,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Spoonful" />
     <Event />
-    <Link to="/events/">More blues gigs, classes, practice sessions...</Link>
+    <Link to="/events">More blues gigs, classes, practice sessions...</Link>
   </Layout>
 );
 
