@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               frontmatter {
                 title
-                path
+                slug
               }
             }
           }
@@ -45,10 +45,10 @@ exports.createPages = ({ graphql, actions }) => {
       const next = index === 0 ? null : posts[index - 1].node;
 
       createPage({
-        path: post.node.frontmatter.path,
+        path: post.node.frontmatter.slug,
         component: blogPost,
         context: {
-          path: post.node.frontmatter.path,
+          slug: post.node.frontmatter.slug,
           previous,
           next,
         },
@@ -59,15 +59,15 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//   const { createNodeField } = actions;
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
 
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const value = createFilePath({ node, getNode });
-//     createNodeField({
-//       name: `slug`,
-//       node,
-//       value,
-//     });
-//   }
-// };
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = getNode(node.parent).sourceInstanceName;
+    createNodeField({
+      name: `source`,
+      node,
+      value,
+    });
+  }
+};

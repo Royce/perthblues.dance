@@ -20,7 +20,32 @@ module.exports = {
         name: `notes`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/events`,
+        name: `events`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-better-embed-video",
+            options: {
+              width: 800,
+              // ratio: 1.77, // Optional: Defaults to 16/9 = 1.77.
+              // height: 400, // Optional: Overrides optional.ratio.
+              // related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
+              // noIframeBorder: true, // Optional: Disable insertion of <style> border: 0.
+              // showInfo: false // Optional: Hides video title and player actions.
+            },
+          },
+          "gatsby-remark-responsive-iframe",
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,

@@ -8,7 +8,7 @@ export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
   return (
     <Layout>
-      <SEO title="Notes" />
+      <SEO title="Events" />
       <div className="blog-posts">
         {posts
           .filter(post => post.node.frontmatter.title.length > 0)
@@ -31,10 +31,10 @@ export default function Index({ data }) {
 }
 
 export const pageQuery = graphql`
-  query NotesIndexQuery {
+  query EventIndexQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fields: { source: { eq: "notes" } } }
+      filter: { fields: { source: { eq: "events" } } }
     ) {
       edges {
         node {

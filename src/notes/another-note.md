@@ -2,7 +2,7 @@
 title: "Sweet Pandas Eating Sweets"
 description: "Descr"
 date: "2017-08-10"
-path: /notes/blah
+slug: /notes/blah
 ---
 
 Pandas are really sweet.
