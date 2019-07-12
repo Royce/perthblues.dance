@@ -1,8 +1,7 @@
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle }: { siteTitle: string }) => {
   const [title, subTitle] = siteTitle.split(" - ");
   return (
     <nav className="flex items-center justify-between flex-wrap bg-yellow-800 p-3 md:p-6">
