@@ -16,7 +16,7 @@ export default function Index({ data }) {
             return (
               <div className="" key={post.id}>
                 <h1 className="font-bold text-xl">
-                  <Link to={post.frontmatter.path}>
+                  <Link to={post.frontmatter.slug}>
                     {post.frontmatter.title}
                   </Link>
                 </h1>

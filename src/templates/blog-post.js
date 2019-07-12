@@ -30,14 +30,14 @@ export default function Template({ data, pageContext }) {
       >
         <li>
           {previous && (
-            <Link to={previous.frontmatter.path} rel="prev">
+            <Link to={previous.frontmatter.slug} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={next.frontmatter.path} rel="next">
+            <Link to={next.frontmatter.slug} rel="next">
               {next.frontmatter.title} →
             </Link>
           )}
