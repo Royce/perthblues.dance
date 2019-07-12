@@ -14,14 +14,17 @@ export default function Index({ data }) {
           .filter(post => post.node.frontmatter.title.length > 0)
           .map(({ node: post }) => {
             return (
-              <div className="" key={post.id}>
+              <div className="pb-6" key={post.id}>
                 <h1 className="font-bold text-xl">
                   <Link to={post.frontmatter.path}>
                     {post.frontmatter.title}
                   </Link>
                 </h1>
-                <h2>{post.frontmatter.date}</h2>
-                <p>{post.excerpt}</p>
+                <h2 className="text-sm">{post.frontmatter.date}</h2>
+                <p className="pt-2">{post.excerpt}</p>
+                <p className="">
+                  <Link to={post.frontmatter.slug}>More</Link>
+                </p>
               </div>
             );
           })}

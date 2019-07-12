@@ -5,7 +5,7 @@ import React from "react";
 const Header = ({ siteTitle }) => {
   const [title, subTitle] = siteTitle.split(" - ");
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-yellow-800 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-yellow-800 p-3 md:p-6">
       <div className="flex items-center flex-shrink-0 text-orange-100 mr-6">
         <svg
           className="fill-current h-6 w-8 mr-2 mb-1"
