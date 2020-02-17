@@ -1,0 +1,9 @@
+.markdown-content ul {
+  margin: 0.8em 0;
+}
+
+.markdown-content li {
+  margin-left: 10px;
+  list-style: inside;
+  list-style-type: disc;
+}

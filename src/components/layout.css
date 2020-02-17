@@ -1,3 +1,37 @@
 @tailwind base;
+
+.markdown-content ul {
+  @apply my-3;
+}
+
+.markdown-content li {
+  @apply ml-5;
+  list-style: inside;
+  list-style-type: disc;
+}
+
+.markdown-content p {
+  @apply my-3;
+}
+
+.markdown-content a {
+  @apply text-orange-800;
+  @apply text-right;
+  @apply underline;
+}
+.markdown-content a:hover {
+  @apply text-black;
+}
+.markdown-content h2 {
+  @apply text-lg;
+  @apply mt-8;
+  @apply border-b-2;
+  @apply border-red-800;
+}
+.markdown-content h3 {
+  @apply my-3;
+  @apply font-bold;
+}
+
 @tailwind components;
 @tailwind utilities;

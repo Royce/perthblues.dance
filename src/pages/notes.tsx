@@ -1,37 +1,59 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import * as t from "io-ts";
+import { ThrowReporter } from "io-ts/lib/ThrowReporter";
+import { isLeft, Right } from "fp-ts/lib/Either";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { Query } from "../graphql";
 
-export default function Index({ data }: { data: Query }) {
-  const { edges: posts } = data.allMarkdownRemark!;
+export default function Index({ data: _data }: { data: any }) {
+  const data = Query.decode(_data);
+  if (isLeft(data)) ThrowReporter.report(data);
+  const edges = (data as Right<IQuery>).right.allMarkdownRemark.edges;
+
   return (
     <Layout>
       <SEO title="Notes" />
-      {posts
-        .filter(post => post.node.frontmatter.title.length > 0)
-        .map(({ node: post }) => {
-          return (
-            <div className="pb-6" key={post.id}>
-              <h1 className="font-bold text-xl">
-                <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
-              </h1>
-              <h2 className="text-sm">{post.frontmatter.date}</h2>
-              <p className="pt-2">{post.excerpt}</p>
-              <p className="">
-                <Link to={post.frontmatter.slug}>More</Link>
-              </p>
-            </div>
-          );
-        })}
+      {edges.map(({ node: post }) => {
+        return (
+          <div className="pb-6" key={post.id}>
+            <h1 className="font-bold text-xl">
+              <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+            </h1>
+            <h2 className="text-sm">{post.frontmatter.date}</h2>
+            <p className="pt-2">{post.excerpt}</p>
+            <p className="">
+              <Link to={post.frontmatter.slug}>More</Link>
+            </p>
+          </div>
+        );
+      })}
     </Layout>
   );
 }
 
+const Query = t.type({
+  allMarkdownRemark: t.type({
+    edges: t.array(
+      t.type({
+        node: t.type({
+          excerpt: t.string,
+          id: t.string,
+          frontmatter: t.type({
+            slug: t.string,
+            title: t.string,
+            date: t.string,
+          }),
+        }),
+      })
+    ),
+  }),
+});
+type IQuery = t.TypeOf<typeof Query>;
+
 export const pageQuery = graphql`
-  query NotesIndexQuery {
+  query NotesIndex {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { fields: { source: { eq: "notes" } } }

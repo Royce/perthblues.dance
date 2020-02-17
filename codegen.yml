@@ -7,3 +7,6 @@ generates:
   src/graphql.ts:
     plugins:
       - "typescript"
+      - "typescript-operations"
+    config:
+      skipTypename: true

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Sugarbowl blues - Perth Blues Dance`,
-    description: `Sugarbowl blues. Social dancing and practicing Blues Idiom Dances. Perth, Australia.`,
+    title: `Sugarbowl Blues - Perth Blues Dance`,
+    description: `Sugarbowl Blues. Social dancing and practicing Blues Idiom Dances. Perth, Australia.`,
     author: `Royce Townsend; Cassie Hayton`,
   },
   plugins: [
@@ -32,6 +32,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+          {
             resolve: "gatsby-remark-better-embed-video",
             options: {
               width: 800,
@@ -43,6 +49,13 @@ module.exports = {
             },
           },
           "gatsby-remark-responsive-iframe",
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_new",
+              rel: "nofollow",
+            },
+          },
         ],
       },
     },
@@ -66,5 +79,12 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: "perthblues.dance",
+        region: "ap-southeast-2",
+      },
+    },
   ],
 };

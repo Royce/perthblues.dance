@@ -33,7 +33,6 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-  __typename?: "Directory";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -130,7 +129,6 @@ export type DirectoryBirthtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  __typename?: "DirectoryConnection";
   totalCount: Scalars["Int"];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -150,7 +148,6 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-  __typename?: "DirectoryEdge";
   next?: Maybe<Directory>;
   node: Directory;
   previous?: Maybe<Directory>;
@@ -319,7 +316,6 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-  __typename?: "DirectoryGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -346,7 +342,6 @@ export enum ExcerptFormats {
 }
 
 export type File = Node & {
-  __typename?: "File";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -447,7 +442,6 @@ export type FileBirthtimeArgs = {
 };
 
 export type FileConnection = {
-  __typename?: "FileConnection";
   totalCount: Scalars["Int"];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -467,7 +461,6 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-  __typename?: "FileEdge";
   next?: Maybe<File>;
   node: File;
   previous?: Maybe<File>;
@@ -638,7 +631,6 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
-  __typename?: "FileGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -700,7 +692,6 @@ export enum ImageFormat {
 }
 
 export type ImageSharp = Node & {
-  __typename?: "ImageSharp";
   id: Scalars["ID"];
   fixed?: Maybe<ImageSharpFixed>;
   resolutions?: Maybe<ImageSharpResolutions>;
@@ -813,7 +804,6 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  __typename?: "ImageSharpConnection";
   totalCount: Scalars["Int"];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -833,7 +823,6 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
-  __typename?: "ImageSharpEdge";
   next?: Maybe<ImageSharp>;
   node: ImageSharp;
   previous?: Maybe<ImageSharp>;
@@ -995,7 +984,6 @@ export type ImageSharpFilterInput = {
 };
 
 export type ImageSharpFixed = {
-  __typename?: "ImageSharpFixed";
   base64?: Maybe<Scalars["String"]>;
   tracedSVG?: Maybe<Scalars["String"]>;
   aspectRatio?: Maybe<Scalars["Float"]>;
@@ -1022,7 +1010,6 @@ export type ImageSharpFixedFilterInput = {
 };
 
 export type ImageSharpFluid = {
-  __typename?: "ImageSharpFluid";
   base64?: Maybe<Scalars["String"]>;
   tracedSVG?: Maybe<Scalars["String"]>;
   aspectRatio?: Maybe<Scalars["Float"]>;
@@ -1053,7 +1040,6 @@ export type ImageSharpFluidFilterInput = {
 };
 
 export type ImageSharpGroupConnection = {
-  __typename?: "ImageSharpGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -1063,7 +1049,6 @@ export type ImageSharpGroupConnection = {
 };
 
 export type ImageSharpOriginal = {
-  __typename?: "ImageSharpOriginal";
   width?: Maybe<Scalars["Float"]>;
   height?: Maybe<Scalars["Float"]>;
   src?: Maybe<Scalars["String"]>;
@@ -1076,7 +1061,6 @@ export type ImageSharpOriginalFilterInput = {
 };
 
 export type ImageSharpResize = {
-  __typename?: "ImageSharpResize";
   src?: Maybe<Scalars["String"]>;
   tracedSVG?: Maybe<Scalars["String"]>;
   width?: Maybe<Scalars["Int"]>;
@@ -1095,7 +1079,6 @@ export type ImageSharpResizeFilterInput = {
 };
 
 export type ImageSharpResolutions = {
-  __typename?: "ImageSharpResolutions";
   base64?: Maybe<Scalars["String"]>;
   tracedSVG?: Maybe<Scalars["String"]>;
   aspectRatio?: Maybe<Scalars["Float"]>;
@@ -1122,7 +1105,6 @@ export type ImageSharpResolutionsFilterInput = {
 };
 
 export type ImageSharpSizes = {
-  __typename?: "ImageSharpSizes";
   base64?: Maybe<Scalars["String"]>;
   tracedSVG?: Maybe<Scalars["String"]>;
   aspectRatio?: Maybe<Scalars["Float"]>;
@@ -1158,7 +1140,6 @@ export type ImageSharpSortInput = {
 };
 
 export type Internal = {
-  __typename?: "Internal";
   content?: Maybe<Scalars["String"]>;
   contentDigest: Scalars["String"];
   description?: Maybe<Scalars["String"]>;
@@ -1201,7 +1182,6 @@ export type JsonQueryOperatorInput = {
 };
 
 export type MarkdownHeading = {
-  __typename?: "MarkdownHeading";
   value?: Maybe<Scalars["String"]>;
   depth?: Maybe<Scalars["Int"]>;
 };
@@ -1216,7 +1196,6 @@ export type MarkdownHeadingFilterListInput = {
 };
 
 export type MarkdownRemark = Node & {
-  __typename?: "MarkdownRemark";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -1257,7 +1236,6 @@ export type MarkdownRemarkTableOfContentsArgs = {
 };
 
 export type MarkdownRemarkConnection = {
-  __typename?: "MarkdownRemarkConnection";
   totalCount: Scalars["Int"];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1277,14 +1255,12 @@ export type MarkdownRemarkConnectionGroupArgs = {
 };
 
 export type MarkdownRemarkEdge = {
-  __typename?: "MarkdownRemarkEdge";
   next?: Maybe<MarkdownRemark>;
   node: MarkdownRemark;
   previous?: Maybe<MarkdownRemark>;
 };
 
 export type MarkdownRemarkFields = {
-  __typename?: "MarkdownRemarkFields";
   source?: Maybe<Scalars["String"]>;
 };
 
@@ -1420,7 +1396,6 @@ export type MarkdownRemarkFilterInput = {
 };
 
 export type MarkdownRemarkFrontmatter = {
-  __typename?: "MarkdownRemarkFrontmatter";
   title?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   date?: Maybe<Scalars["Date"]>;
@@ -1442,7 +1417,6 @@ export type MarkdownRemarkFrontmatterFilterInput = {
 };
 
 export type MarkdownRemarkGroupConnection = {
-  __typename?: "MarkdownRemarkGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -1476,7 +1450,6 @@ export type NodeFilterListInput = {
 };
 
 export type PageInfo = {
-  __typename?: "PageInfo";
   currentPage: Scalars["Int"];
   hasPreviousPage: Scalars["Boolean"];
   hasNextPage: Scalars["Boolean"];
@@ -1507,7 +1480,6 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
-  __typename?: "Query";
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
   file?: Maybe<File>;
@@ -1731,7 +1703,6 @@ export type QueryAllMarkdownRemarkArgs = {
 };
 
 export type Site = Node & {
-  __typename?: "Site";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -1752,7 +1723,6 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteConnection = {
-  __typename?: "SiteConnection";
   totalCount: Scalars["Int"];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -1772,7 +1742,6 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-  __typename?: "SiteEdge";
   next?: Maybe<Site>;
   node: Site;
   previous?: Maybe<Site>;
@@ -1889,7 +1858,6 @@ export type SiteFilterInput = {
 };
 
 export type SiteGroupConnection = {
-  __typename?: "SiteGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -1899,7 +1867,6 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
-  __typename?: "SitePage";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -1916,7 +1883,6 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-  __typename?: "SitePageConnection";
   totalCount: Scalars["Int"];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -1936,7 +1902,6 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-  __typename?: "SitePageContext";
   slug?: Maybe<Scalars["String"]>;
   previous?: Maybe<SitePageContextPrevious>;
   next?: Maybe<SitePageContextNext>;
@@ -1949,13 +1914,11 @@ export type SitePageContextFilterInput = {
 };
 
 export type SitePageContextNext = {
-  __typename?: "SitePageContextNext";
   frontmatter?: Maybe<SitePageContextNextFrontmatter>;
   fields?: Maybe<SitePageContextNextFields>;
 };
 
 export type SitePageContextNextFields = {
-  __typename?: "SitePageContextNextFields";
   source?: Maybe<Scalars["String"]>;
 };
 
@@ -1969,7 +1932,6 @@ export type SitePageContextNextFilterInput = {
 };
 
 export type SitePageContextNextFrontmatter = {
-  __typename?: "SitePageContextNextFrontmatter";
   title?: Maybe<Scalars["String"]>;
   slug?: Maybe<Scalars["String"]>;
 };
@@ -1980,13 +1942,11 @@ export type SitePageContextNextFrontmatterFilterInput = {
 };
 
 export type SitePageContextPrevious = {
-  __typename?: "SitePageContextPrevious";
   frontmatter?: Maybe<SitePageContextPreviousFrontmatter>;
   fields?: Maybe<SitePageContextPreviousFields>;
 };
 
 export type SitePageContextPreviousFields = {
-  __typename?: "SitePageContextPreviousFields";
   source?: Maybe<Scalars["String"]>;
 };
 
@@ -2000,7 +1960,6 @@ export type SitePageContextPreviousFilterInput = {
 };
 
 export type SitePageContextPreviousFrontmatter = {
-  __typename?: "SitePageContextPreviousFrontmatter";
   title?: Maybe<Scalars["String"]>;
   slug?: Maybe<Scalars["String"]>;
 };
@@ -2011,7 +1970,6 @@ export type SitePageContextPreviousFrontmatterFilterInput = {
 };
 
 export type SitePageEdge = {
-  __typename?: "SitePageEdge";
   next?: Maybe<SitePage>;
   node: SitePage;
   previous?: Maybe<SitePage>;
@@ -2213,7 +2171,6 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-  __typename?: "SitePageGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -2228,7 +2185,6 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-  __typename?: "SitePlugin";
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -2244,7 +2200,6 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-  __typename?: "SitePluginConnection";
   totalCount: Scalars["Int"];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2264,7 +2219,6 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-  __typename?: "SitePluginEdge";
   next?: Maybe<SitePlugin>;
   node: SitePlugin;
   previous?: Maybe<SitePlugin>;
@@ -2414,7 +2368,6 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-  __typename?: "SitePluginGroupConnection";
   totalCount: Scalars["Int"];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -2424,7 +2377,6 @@ export type SitePluginGroupConnection = {
 };
 
 export type SitePluginPackageJson = {
-  __typename?: "SitePluginPackageJson";
   name?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["String"]>;
@@ -2438,7 +2390,6 @@ export type SitePluginPackageJson = {
 };
 
 export type SitePluginPackageJsonDependencies = {
-  __typename?: "SitePluginPackageJsonDependencies";
   name?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["String"]>;
 };
@@ -2453,7 +2404,6 @@ export type SitePluginPackageJsonDependenciesFilterListInput = {
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-  __typename?: "SitePluginPackageJsonDevDependencies";
   name?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["String"]>;
 };
@@ -2483,7 +2433,6 @@ export type SitePluginPackageJsonFilterInput = {
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-  __typename?: "SitePluginPackageJsonPeerDependencies";
   name?: Maybe<Scalars["String"]>;
   version?: Maybe<Scalars["String"]>;
 };
@@ -2498,7 +2447,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
-  __typename?: "SitePluginPluginOptions";
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   name?: Maybe<Scalars["String"]>;
   path?: Maybe<Scalars["String"]>;
@@ -2527,7 +2475,6 @@ export type SitePluginPluginOptionsFilterInput = {
 };
 
 export type SitePluginPluginOptionsPlugins = {
-  __typename?: "SitePluginPluginOptionsPlugins";
   resolve?: Maybe<Scalars["String"]>;
   id?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
@@ -2550,7 +2497,6 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsPluginsPluginOptions = {
-  __typename?: "SitePluginPluginOptionsPluginsPluginOptions";
   width?: Maybe<Scalars["Int"]>;
 };
 
@@ -2564,7 +2510,6 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-  __typename?: "SiteSiteMetadata";
   title?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   author?: Maybe<Scalars["String"]>;
@@ -2596,7 +2541,6 @@ export type StringQueryOperatorInput = {
 };
 
 export type WordCount = {
-  __typename?: "wordCount";
   paragraphs?: Maybe<Scalars["Int"]>;
   sentences?: Maybe<Scalars["Int"]>;
   words?: Maybe<Scalars["Int"]>;
@@ -2607,3 +2551,220 @@ export type WordCountFilterInput = {
   sentences?: Maybe<IntQueryOperatorInput>;
   words?: Maybe<IntQueryOperatorInput>;
 };
+export type Unnamed_1_QueryVariables = {};
+
+export type Unnamed_1_Query = {
+  placeholderImage: Maybe<{
+    childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }>;
+  }>;
+};
+
+export type Unnamed_2_QueryVariables = {};
+
+export type Unnamed_2_Query = {
+  placeholderImage: Maybe<{
+    childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }>;
+  }>;
+};
+
+export type SiteTitleQueryQueryVariables = {};
+
+export type SiteTitleQueryQuery = {
+  site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, "title">> }>;
+};
+
+export type Unnamed_3_QueryVariables = {};
+
+export type Unnamed_3_Query = {
+  site: Maybe<{
+    siteMetadata: Maybe<
+      Pick<SiteSiteMetadata, "title" | "description" | "author">
+    >;
+  }>;
+};
+
+export type EventIndexQueryQueryVariables = {};
+
+export type EventIndexQueryQuery = {
+  allMarkdownRemark: Maybe<{
+    edges: Array<{
+      node: Pick<MarkdownRemark, "excerpt" | "id"> & {
+        frontmatter: Maybe<
+          Pick<MarkdownRemarkFrontmatter, "title" | "date" | "slug">
+        >;
+      };
+    }>;
+  }>;
+};
+
+export type NotesIndexQueryVariables = {};
+
+export type NotesIndexQuery = {
+  allMarkdownRemark: Maybe<{
+    edges: Array<{
+      node: Pick<MarkdownRemark, "excerpt" | "id"> & {
+        frontmatter: Maybe<
+          Pick<MarkdownRemarkFrontmatter, "title" | "date" | "slug">
+        >;
+      };
+    }>;
+  }>;
+};
+
+export type BlogPostByPathQueryVariables = {
+  slug: Scalars["String"];
+};
+
+export type BlogPostByPathQuery = {
+  markdownRemark: Maybe<
+    Pick<MarkdownRemark, "html"> & {
+      frontmatter: Maybe<
+        Pick<MarkdownRemarkFrontmatter, "date" | "slug" | "title">
+      >;
+    }
+  >;
+};
+
+export type GatsbyImageSharpFixedFragment = Pick<
+  ImageSharpFixed,
+  "base64" | "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpFixed_TracedSvgFragment = Pick<
+  ImageSharpFixed,
+  "tracedSVG" | "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpFixed_WithWebpFragment = Pick<
+  ImageSharpFixed,
+  "base64" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = Pick<
+  ImageSharpFixed,
+  "tracedSVG" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpFixed_NoBase64Fragment = Pick<
+  ImageSharpFixed,
+  "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = Pick<
+  ImageSharpFixed,
+  "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpFluidFragment = Pick<
+  ImageSharpFluid,
+  "base64" | "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpFluid_TracedSvgFragment = Pick<
+  ImageSharpFluid,
+  "tracedSVG" | "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpFluid_WithWebpFragment = Pick<
+  ImageSharpFluid,
+  | "base64"
+  | "aspectRatio"
+  | "src"
+  | "srcSet"
+  | "srcWebp"
+  | "srcSetWebp"
+  | "sizes"
+>;
+
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = Pick<
+  ImageSharpFluid,
+  | "tracedSVG"
+  | "aspectRatio"
+  | "src"
+  | "srcSet"
+  | "srcWebp"
+  | "srcSetWebp"
+  | "sizes"
+>;
+
+export type GatsbyImageSharpFluid_NoBase64Fragment = Pick<
+  ImageSharpFluid,
+  "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = Pick<
+  ImageSharpFluid,
+  "aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
+>;
+
+export type GatsbyImageSharpResolutionsFragment = Pick<
+  ImageSharpResolutions,
+  "base64" | "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpResolutions_TracedSvgFragment = Pick<
+  ImageSharpResolutions,
+  "tracedSVG" | "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpResolutions_WithWebpFragment = Pick<
+  ImageSharpResolutions,
+  "base64" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = Pick<
+  ImageSharpResolutions,
+  "tracedSVG" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpResolutions_NoBase64Fragment = Pick<
+  ImageSharpResolutions,
+  "width" | "height" | "src" | "srcSet"
+>;
+
+export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = Pick<
+  ImageSharpResolutions,
+  "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
+>;
+
+export type GatsbyImageSharpSizesFragment = Pick<
+  ImageSharpSizes,
+  "base64" | "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpSizes_TracedSvgFragment = Pick<
+  ImageSharpSizes,
+  "tracedSVG" | "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpSizes_WithWebpFragment = Pick<
+  ImageSharpSizes,
+  | "base64"
+  | "aspectRatio"
+  | "src"
+  | "srcSet"
+  | "srcWebp"
+  | "srcSetWebp"
+  | "sizes"
+>;
+
+export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = Pick<
+  ImageSharpSizes,
+  | "tracedSVG"
+  | "aspectRatio"
+  | "src"
+  | "srcSet"
+  | "srcWebp"
+  | "srcSetWebp"
+  | "sizes"
+>;
+
+export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<
+  ImageSharpSizes,
+  "aspectRatio" | "src" | "srcSet" | "sizes"
+>;
+
+export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<
+  ImageSharpSizes,
+  "aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
+>;

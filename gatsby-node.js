@@ -25,6 +25,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 slug
+                date
               }
               fields {
                 source
@@ -42,6 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 slug
+                date
               }
               fields {
                 source
