@@ -3,8 +3,9 @@ import React from "react";
 
 const Header = ({ siteTitle }: { siteTitle: string }) => {
   const [title, subTitle] = siteTitle.split(" - ");
+  // 3C79B5
   return (
-    <nav className="bg-yellow-800 p-3 md:p-6">
+    <nav className="bg-blue-600 p-3 md:p-6">
       <div className="flex flex-wrap max-w-2xl items-center justify-between mx-auto">
         <div className="flex items-center flex-shrink-0 text-orange-100 mr-6">
           <svg

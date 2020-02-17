@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Sugarbowl Blues - Perth Blues Dance`,
-    description: `Sugarbowl Blues. Social dancing and practicing Blues Idiom Dances. Perth, Australia.`,
+    title: `Sugar Bowl Blues - Perth Blues Dance`,
+    description: `Sugar Bowl Blues. Social dancing and practicing Blues Idiom Dances. Perth, Australia.`,
     author: `Royce Townsend; Cassie Hayton`,
   },
   plugins: [

@@ -1,0 +1,14 @@
+---
+date: "2020-02-22"
+slug: /spoonful
+title: "Spoonful with Cassie and Royce"
+---
+
+We're back! And it's time to get funky... with our butts!
+
+This month Cassie and Royce are teaching Funky Butt.
+
+Open level class 7-8pm ($15, inc. social).
+Social Dancing from 8 til late ($10).
+
+Bring snacks to share if you want. Tea and coffee provided. Lets get funky!
