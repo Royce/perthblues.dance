@@ -6,10 +6,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-function cleanExcerpt(input: string): string {
-  return input.split(/(\s+Location|\.\s+Lead Pencil Blues)/)[0];
-}
-
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
   const months = _.groupBy(posts, ({ node: post }) =>
@@ -36,24 +32,28 @@ export default function Index({ data }) {
                       <br />
                       {m.format("DD").toLocaleUpperCase()}
                     </div>
-                    <div className="bg-yellow-300 ml-16">
+                    <div className={`${post.excerpt ? "bg-yellow-300" : "bg-white"} ml-16`}>
                       <h1 className="font-bold text-xl">
-                        <Link
+                        {post.excerpt ? <Link
                           className="hover:underline"
-                          to={post.frontmatter.slug}
+                          to={post.fields.slug}
                         >
                           {post.frontmatter.title}
-                        </Link>
+                        </Link> : post.frontmatter.title}
                       </h1>
-                      <p className="pl-0">
-                        {cleanExcerpt(post.excerpt)}
-                        {"... "}
-                        <span className="text-orange-800 text-right underline hover:text-black">
-                          <Link to={post.frontmatter.slug}>
-                            Further details >>
-                          </Link>
-                        </span>
-                      </p>
+                      {post.frontmatter.venue && 
+                        <p>{_.join(_.without([post.frontmatter.venue, post.frontmatter.time], null), ", ")}</p>
+                      }
+                      {post.excerpt &&
+                        <p className="pl-0">
+                          {post.excerpt}
+                          <span className="float-right text-orange-800 text-right underline hover:text-black">
+                            <Link to={post.fields.slug}>
+                              Further details &gt;&gt;
+                            </Link>
+                          </span>
+                        </p>
+                      }
                     </div>
                   </div>
                 );
@@ -77,7 +77,11 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            venue
             date
+            time
+          }
+          fields {
             slug
           }
         }

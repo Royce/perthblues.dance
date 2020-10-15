@@ -15,16 +15,18 @@ export default function Index({ data: _data }: { data: any }) {
   return (
     <Layout>
       <SEO title="Notes" />
-      {edges.map(({ node: post }) => {
+      {edges
+       .filter(({node}) => !node.frontmatter.secret)
+       .map(({ node: post }) => {
         return (
           <div className="pb-6" key={post.id}>
             <h1 className="font-bold text-xl">
-              <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+              <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
             </h1>
             <h2 className="text-sm">{post.frontmatter.date}</h2>
             <p className="pt-2">{post.excerpt}</p>
             <p className="">
-              <Link to={post.frontmatter.slug}>More</Link>
+              <Link to={post.fields.slug}>More</Link>
             </p>
           </div>
         );
@@ -40,11 +42,16 @@ const Query = t.type({
         node: t.type({
           excerpt: t.string,
           id: t.string,
-          frontmatter: t.type({
+          fields: t.type({
             slug: t.string,
-            title: t.string,
-            date: t.string,
           }),
+          frontmatter: t.intersection([
+            t.type({
+              title: t.string,
+              date: t.string,
+            }),
+            t.partial({secret: t.boolean})
+          ]),
         }),
       })
     ),
@@ -65,6 +72,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            secret
+          }
+          fields {
             slug
           }
         }

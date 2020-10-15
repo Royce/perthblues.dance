@@ -6,9 +6,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-function cleanExcerpt(input: string): string {
-  return input.split(/(\s+Location|\.\s+Lead Pencil Blues)/)[0];
-}
+const yesterday = moment().add(-1, 'days');
 
 function Item(post) {
   const m = moment(post.frontmatter.date);
@@ -19,15 +17,14 @@ function Item(post) {
       </div>
       <div className="bg-yellow-100 p-1">
         <h3 className="font-bold text-xl">
-          <Link className="hover:underline" to={post.frontmatter.slug}>
+          <Link className="hover:underline" to={post.fields.slug}>
             {post.frontmatter.title}
           </Link>
         </h3>
         <p className="pl-0">
-          {cleanExcerpt(post.excerpt)}
-          {"... "}
-          <span className="text-orange-800 text-right underline hover:text-black">
-            <Link to={post.frontmatter.slug}>Further details >></Link>
+          {post.excerpt}
+          <span className="float-right text-orange-800 text-right underline hover:text-black">
+            <Link to={post.fields.slug}>Further details &gt;&gt;</Link>
           </span>
         </p>
       </div>
@@ -38,11 +35,11 @@ function Item(post) {
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
   const spoonful = posts
-    .filter(({ node: post }) => post.frontmatter.slug == "/spoonful")
+    .filter(({ node: post }) => post.frontmatter.tag == "spoonful" && moment(post.frontmatter.date).isAfter(yesterday))
     .map(({ node: post }) => post)[0];
 
   const lpb = posts
-    .filter(({ node: post }) => post.frontmatter.slug == "/lead-pencil-blues")
+    .filter(({ node: post }) => post.frontmatter.tag == "lead-pencil-blues" && moment(post.frontmatter.date).isAfter(yesterday))
     .map(({ node: post }) => post)[0];
 
   return (
@@ -97,6 +94,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            tag
+          }
+          fields {
             slug
           }
         }

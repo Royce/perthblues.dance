@@ -21,15 +21,18 @@ export default function Template({ data, pageContext }) {
         <h1 className="text-xl uppercase my-3 py-2">
           {post.frontmatter.title}
         </h1>
+        {post.frontmatter.venue &&
+          <p>{post.frontmatter.title}, {post.frontmatter.venue}, {post.frontmatter.time}</p>
+        }
         <div
           className="markdown-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </div>
-      <ul className="flex flex-wrap justify-between list-none p-0 mt-8">
+      <ul className="flex justify-between list-none p-0 mt-8">
         <li>
           {previous && (
-            <Link to={previous.frontmatter.slug} rel="prev">
+            <Link to={previous.fields.slug} rel="prev">
               ← {MiniDateBlock(previous.frontmatter.date)}{" "}
               {previous.frontmatter.title}
             </Link>
@@ -37,7 +40,7 @@ export default function Template({ data, pageContext }) {
         </li>
         <li>
           {next && (
-            <Link to={next.frontmatter.slug} rel="next">
+            <Link to={next.fields.slug} rel="next">
               {next.frontmatter.title} {MiniDateBlock(next.frontmatter.date)} →
             </Link>
           )}
@@ -58,12 +61,16 @@ function MiniDateBlock(dateString: string) {
 
 export const pageQuery = graphql`
   query BlogPostByPath($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date
-        slug
         title
+        venue
+        time
+      }
+      fields {
+        slug
       }
     }
   }

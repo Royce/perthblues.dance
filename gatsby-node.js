@@ -7,11 +7,12 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`);
+const moment = require("moment");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  const blogPost = path.resolve(`./src/templates/event-post.tsx`);
   return graphql(
     `
       query NotesAndEvents {
@@ -24,10 +25,10 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               frontmatter {
                 title
-                slug
                 date
               }
               fields {
+                slug
                 source
               }
             }
@@ -42,10 +43,10 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               frontmatter {
                 title
-                slug
                 date
               }
               fields {
+                slug
                 source
               }
             }
@@ -67,10 +68,10 @@ exports.createPages = ({ graphql, actions }) => {
       const next = index === 0 ? null : notes[index - 1].node;
 
       createPage({
-        path: note.node.frontmatter.slug,
+        path: note.node.fields.slug,
         component: blogPost,
         context: {
-          slug: note.node.frontmatter.slug,
+          slug: note.node.fields.slug,
           previous,
           next,
         },
@@ -86,10 +87,10 @@ exports.createPages = ({ graphql, actions }) => {
       const next = index === 0 ? null : events[index - 1].node;
 
       createPage({
-        path: event.node.frontmatter.slug,
+        path: event.node.fields.slug,
         component: blogPost,
         context: {
-          slug: event.node.frontmatter.slug,
+          slug: event.node.fields.slug,
           previous,
           next,
         },
@@ -103,11 +104,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = getNode(node.parent).sourceInstanceName;
     createNodeField({
       name: `source`,
       node,
-      value,
+      value: getNode(node.parent).sourceInstanceName,
+    });
+
+    const dateString = moment(node.frontmatter.date).format("YYYY-MM-DD");
+    createNodeField({
+      name: `slug`,
+      node,
+      value: node.frontmatter.slug || `/${node.frontmatter.tag}-${dateString}`,
     });
   }
 };
